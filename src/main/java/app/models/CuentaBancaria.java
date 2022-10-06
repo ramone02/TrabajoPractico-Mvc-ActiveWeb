@@ -156,6 +156,10 @@ public class CuentaBancaria implements Serializable{
         if (monto <= 0) {
             this.errores.add("El monto a transferir debe ser mayor a 0");
         }
+        
+        if (errores.size() > 0) {
+            throw new FormException("Se han encontrado Errores en el Formulario");
+        }
 
         for (CuentaBancaria cuenta : cuentas) {
             if (cuenta.getId().equals(idOrigen)) {

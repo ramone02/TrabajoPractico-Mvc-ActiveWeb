@@ -29,7 +29,7 @@ public class TransferenciaController extends AppController{
     }
     
     @POST
-    public void deposito(){
+    public void deposito() {
         CuentaBancaria cuenta = new CuentaBancaria();
         try {
             Map<String, String[]> parametros = params();
@@ -41,6 +41,11 @@ public class TransferenciaController extends AppController{
             
         } catch (FormException e) {
             view("errores", cuenta.getErrores());
+            render("error");
         }
+    }
+    
+    public void error(){
+        
     }
 }
